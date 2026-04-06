@@ -1,0 +1,17 @@
+fetch('places.json')
+  .then(response => response.json())
+  .then(data => {
+    let output = '';
+
+    data.forEach(place => {
+      output += `
+        <div>
+          <h3>${place.name}</h3>
+          <img src="images/${place.image}" width="200">
+          <p>${place.description}</p>
+        </div>
+      `;
+    });
+
+    document.getElementById('places').innerHTML = output;
+  });
